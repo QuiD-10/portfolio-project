@@ -12,5 +12,13 @@ class Blog(models.Model):
     image = models.ImageField(upload_to='images/')
     body = models.TextField(max_length=3000)
 
+    def summary(self):
+        return self.body[:100]
+    
+    def pub_Date(self):
+        return self.pubDate.strftime('%b %e, %Y')
+    
+    def __str__(self):
+        return self.title
 
 #add to the admin
