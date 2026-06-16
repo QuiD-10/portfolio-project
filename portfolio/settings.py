@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 
 from pathlib import Path
 import os
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,7 +28,8 @@ SECRET_KEY = 'django-insecure-c0u%74%nd$i#^6&q^wt9*yl*4=0i-n1s^*@egdi5$hz$&rg(hp
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'portfolio-project-nine-lake.vercel.app', 
+    'portfolio-project-nine-lake.vercel.app',
+    'portfolio-project-4stypnh1d-quid-10s-projects.vercel.app',
     'localhost', 
     '127.0.0.1'
 ]
@@ -90,6 +92,10 @@ DATABASES = {
 
     }
 }
+
+database_url = os.environ.get("DATABASE_URL")
+if database_url:
+    DATABASES['default'] = dj_database_url.parse(database_url)
 
 
 # Password validation
