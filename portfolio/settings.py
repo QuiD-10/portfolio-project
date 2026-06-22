@@ -150,3 +150,9 @@ STORAGES = {
         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
     },
 }
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://gavin-duong.dev',
+    'https://*.gavin-duong.dev',
+    'https://*.vercel.app',
+]
